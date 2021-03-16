@@ -1,18 +1,13 @@
 {
-  "name": "comma",
+  "name": "imitate example",
+  "manifest_version": 3,
+  "description": "익숙해지려고 따라함",
   "version": "1.0",
-  "manifest_version": 2,
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ],
-  "browser_action": {
-    "default_title": "Comma"
-  },
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "background.js"
   },
-  "permissions": ["tabs"]
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }

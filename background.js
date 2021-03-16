@@ -1,8 +1,6 @@
-window.commas = {};
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  window.commas[request.url] = request.count;
-});
+let color = "#a5c32d";
 
-chrome.browserAction.onClicked.addListener(function (tab) {
-  chrome.tabs.create({ url: "popup.html" });
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.storage.sync.set({ color });
+  console.log(`default background color set to %c색깔`, `color: ${color}`);
 });
